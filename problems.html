@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problems</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .hero {
+      height: 87vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/problem.jpg') no-repeat center/cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Overlay */
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      /* max-height: 100%; */
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Content */
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: white;
+      max-width: 700px;
+      padding: 50px;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    /* Buttons */
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    /* Primary Button */
+    .btn.primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn.primary:hover {
+      background: var(--dark);
+    }
+
+    .pollution-section {
+      padding: 100px 5%;
+      background: var(--light);
+      color: var(--dark);
+
+    }
+
+    .pollution {
+      display: flex;
+      gap: 50px;
+      align-items: flex-start;
+    }
+
+    .visual {
+      flex: 1;
+      position: sticky;
+      top: 50px;
+    }
+
+    .img-wrapper img {
+      width: 100%;
+      border-radius: 20px;
+      filter: grayscale(30%) contrast(110%);
+      box-shadow: 0 20px 50px rgba(206, 216, 223, 0.4);
+    }
+
+    .floating-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -10px;
+      background-color: #ff4d4d;
+      padding: 15px;
+      font-weight: 600;
+      border-radius: 10px;
+      max-width: 200px;
+      font-size: 0.9rem;
+      color: var(--light);
+    }
+
+    .pollution-content {
+      flex: 1.2;
+    }
+
+    .sub-title {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+    }
+
+    .p-card {
+      background: #e1ecf7;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      transition: 0.4s;
+    }
+
+    .p-card:hover {
+      background: #d6f1f7;
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+
+    .tag {
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .p-card h3 {
+      font-size: 1.8rem;
+      margin: 10px 0;
+    }
+
+    .p-card p {
+      color: var(--primary);
+      line-height: 1.7;
+    }
+
+    .acid-section {
+      padding: 100px 8%;
+      background: var(--white);
+      color: #2c3e50;
+    }
+
+    .acid {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .tag-crisis {
+      background: rgba(255, 77, 77, 0.1);
+      color: #ff4d4d;
+      padding: 5px 15px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .acid-text h2 {
+      font-size: 2.8rem;
+      margin: 10px 0 20px;
+      color: #0071bc;
+      text-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+    }
+
+    .lead-text {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .acid-grid {
+      display: grid;
+      gap: 20px;
+      margin: 30px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .acid-info-card {
+      background: #f8fbff;
+      padding: 20px;
+      border-radius: 12px;
+      border-top: 4px solid #0071bc;
+    }
+
+    .acid-info-card h4 {
+      margin: 10px;
+      color: #004a7c;
+    }
+
+    .stat-pill {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #eef6ff;
+      border: 1px solid #0071bc;
+      color: #0071bc;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+
+    .overfishing-section {
+      padding: 100px 10%;
+      background: linear-gradient(145deg, #24268f, #2e30bb);
+      color: #fff;
+    }
+
+    .header-center {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+
+    .header-center h2 {
+      font-size: 2.5rem;
+      margin-top: 15px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
+
+    .fishing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .f-card {
+      background: var(--dark);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .f-card:hover {
+      border-color: #024b7c;
+      transform: translateY(-5px);
+    }
+
+    .f-card .icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .f-card h3 {
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+
+    .f-card p {
+      color: var(--light);
+      font-size: 0.95rem;
+    }
+
+    .progress-bar {
+      background: #1a2634;
+      height: 8px;
+      border-radius: 10px;
+      margin-top: 25px;
+      overflow: hidden;
+    }
+
+    .fill {
+      background: #ff4d4d;
+      height: 100%;
+      box-shadow: 0 0 10px #ff4d4d;
+    }
+
+    .stat-num {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    .stat-num small {
+      display: block;
+      font-size: 0.8rem;
+      color: #7a93b8;
+    }
+
+    .climate-section {
+      padding: 100px 10%;
+      background: var(--light);
+      color: #004a7c;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .climate-change {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .climate-info h2 {
+      font-size: 2.5rem;
+      margin: 20px 0;
+      text-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+    }
+
+    .impact-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 15px;
+      border-radius: 15px;
+      margin: 10px 0 20px 0;
+      border-left: 4px solid #00f2ff;
+    }
+
+    .temp-indicator {
+      background: #00f2ff;
+      color: #051937;
+      font-weight: 900;
+      padding: 10px;
+      border-radius: 8px;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    .climate-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .city-card {
+      width: 300px;
+      height: 450px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+      bottom: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .city-outline {
+      font-size: 8rem;
+      z-index: 1;
+      margin-bottom: 50px;
+      opacity: 0.8;
+    }
+
+    .water-level {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40%;
+      background: rgba(0, 242, 255, 0.4);
+      box-shadow: 0 0 30px #00f2ff;
+      animation: rise 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes rise {
+      from {
+        height: 35%
+      }
+
+      to {
+        height: 55%;
+      }
+    }
+
+    .warning-box {
+      z-index: 2;
+      padding: 20px;
+      background: rgba(0.6);
+      backdrop-filter: blur(10px);
+      width: 100%;
+      text-align: center;
+    }
+    .cta-section{
+      padding: 100px 10%;
+      background: #f0f7ff;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta{
+      width: 100%;
+      max-width: 1000px;
+      position: relative;
+      overflow: hidden;
+      z-index: 5;
+    }
+    .cta-card{
+      background: #fff;
+      padding: 80px 40px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 113, 188, 0.05);
+      border: 1px solid rgba(0, 113, 188, 0.05);
+    }
+    .label{
+      color: #0071bc;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .cta-card h2{
+      font-size: 2.4rem;
+      color: #1a2b3c;
+      line-height: 1.2;
+      margin-bottom: 25px;
+    }
+    .cta-card h2 span{
+      color: #00a2ff;
+    }
+    .cta-card p{
+      font-size: 1.15rem;
+      color: #5d6d7e;
+      max-width: 650px;
+      margin: 0 auto 40px;
+      line-height: 1,6;
+    }
+.cta-actions{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.btn-primary{
+  background: #0071bc;
+  color: #fff;
+  padding: 16px 35px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 113, 188, 0.2);
+}
+.btn-primary:hover{
+  background: #005b96;
+  transform: translateY(-3px);
+}
+.btn-sec{
+  background-color: transparent;
+  color: #0071bc;
+  padding: 16px 35px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid #0071bc;
+  transition: all 0.3s ease;
+}
+.btn-sec:hover{
+  background: #0071bc;
+  color: #fff;
+}
+
+    /* Responsive */
+    @media(max-width:900px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .pollution {
+        flex-direction: column;
+      }
+
+      .visual {
+        position: relative;
+        top: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L12 17.17V19.93zm6.93-2.52c-.41-2.71-2.1-4.99-4.52-5.76V4.07c3.95.49 7 3.85 7 7.93 0 .62-.08 1.21-.21 1.79l-2.27 2.27zM12 4.07V15.17l-8.72-8.72C4.34 5.37 6.09 4.24 8 4.07c-.41 2.71-2.1 4.99-4.52 5.76V4.07z" />
+      </svg>
+      AquaGuard
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="problems.html" id="active">Problems</a>
+      <a href="solution.html">Solutions</a>
+      <a href="contact.html">Contact</a>
+      <a href="involve.html" class="btn-join" style="color: var(--light);">Get Involved</a>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>THE BLUE CRISIS REPORT</h1>
+      <p>
+        A Comprehensive audit of SDG14 challenges: From toxic pollution to the vanishing biodiversity of our deep seas.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#pollution-section" class="btn primary">Explore Problems</a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Marine Pollution -->
+  <section class="pollution-section" id="pollution-section">
+    <div class="pollution">
+      <div class="visual">
+        <div class="img-wrapper">
+          <img src="images/pollution.jpg" alt="">
+          <div class="floating-badge">
+            90% of sea birds have plastic in thier gut
+          </div>
+        </div>
+      </div>
+      <div class="pollution-content">
+        <h2 class="sub-title">01. Marine Pollution</h2>
+        <div class="p-card">
+          <span class="tag">Plastic Crisis</span>
+          <h3>The Plastic Plague</h3>
+          <p>Every year, 11 million tons of plastic enter the ocean. It does not disappear; instead, it breaks down into
+            <b>microplastics</b> and becomes part of our food chain.
+          </p>
+        </div>
+
+        <div class="p-card">
+          <span class="tag">Toxic Runoff</span>
+          <h3>Agricultural Dead Zone</h3>
+          <p>Due to fertilizers and chemicals,oxygen get depleted, leading to the formation of "dead zones" where no
+            fish can survive</p>
+        </div>
+
+        <div class="p-card">
+          <span class="tag">Oil spills</span>
+          <h3>Black Tides</h3>
+          <p>Industrial accidents and oil spills become instant death traps for marine birds and mammals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ocean Acidification -->
+  <section class="acid-section">
+    <div class="acid">
+      <div class="acid-text">
+        <span class="tag-crisis">Chemical Crisis</span>
+        <h2>02. Ocean Acidification</h2>
+        <p class="lead-text">Oceans absorb about 30% of the CO<sub>2</sub> we produce. This changes the water's
+          chemistry, making it harder for marine life to survive.</p>
+        <div class="acid-grid">
+          <div class="acid-info-card">
+            <h4>How it happens?</h4>
+            <p>When CO<sub>2</sub> dissolves in seawater, it forms carbonic acid, lowering the pH level of the entire
+              ocean.</p>
+          </div>
+          <div class="acid-info-card">
+            <h4>Who is affected?</h4>
+            <p>Oysters,crabs and corals cannot build their protective shells, leading to an ecosystem collapse.</p>
+          </div>
+        </div>
+        <div class="stat-pill-group">
+          <span class="stat-pill">pH dropped by 0.1 units</span>
+          <span class="stat-pill">30% Acidity Increase</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERFISHING -->
+  <section class="overfishing-section">
+    <div class="overfishing">
+      <div class="header-center">
+        <span class="tag-crisis">
+          Biodiversity Loss
+        </span>
+        <h2>03. Overfishing & Ecosystem Collapse</h2>
+        <p>We are taking fish out of the ocean faster than they can reproduce. This isn't just about food; it's about
+          the survival of the blue planet.</p>
+      </div>
+      <div class="fishing-grid">
+        <div class="f-card">
+          <div class="icon">🚫</div>
+          <h3>Unsustainable Stock</h3>
+          <p>34.2% of global fish stocks are currently overfished. We are pushing species to the edge of extinction.</p>
+          <div class="progress-bar">
+            <div class="fill" style="width: 34%;"></div>
+          </div>
+        </div>
+
+        <div class="f-card">
+          <div class="icon">🐋</div>
+          <h3>The "Bycatch" Tragedy</h3>
+          <p>Millions of sharks,turtles and dolphins are killed every year as accidental waste in industrial nets.</p>
+          <div class="stat-num">300,000+ <small>Deaths/Year</small></div>
+        </div>
+
+        <div class="f-card">
+          <div class="icon">🛳️</div>
+          <h3>Illiegal (IUU) Fishing</h3>
+          <p>Unregulated fishing steals $23 billion worth of seafood annually, bypassing all conservation laws.</p>
+          <div class="stat-num">$23B <small>Global Loss</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Climate Change-->
+  <section class="climate-section">
+    <div class="climate-change">
+      <div class="climate-info">
+        <span class="tag-crisis">Climate Crisis</span>
+        <h2>04. Warning & Rising Tides</h2>
+        <p>Oceans absorb 90% of the excess heat from global warming, causing seawater to expand and ice sheets to melt-
+          both of which contribute to a dangerous rise in sea levels.</p>
+          <div class="impact-list">
+            <div class="impact-item">
+              <div class="temp-indicator">+1.5C</div>
+              <p><b>Thermal Expansion:</b>Warm water takes up more space, which naturally causes sea levels to rise.</p>
+            </div>
+            <div class="impact-item">
+              <div class="temp-indicator">MELT</div>
+              <p><b>Glacier Retreat:</b>Due to melting of polar ice caps, billions of tons of water are being added to the ocean every year.</p>
+            </div>
+          </div>
+      </div>
+      <div class="climate-visual">
+        <div class="city-card">
+          <div class="water-level"></div>
+          <div class="city-outline"></div>
+          <div class="warning-box">
+            <h4>Coastal Cities at Risk</h4>
+            <p>By 2050, many major cities could be underwater.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+       <!-- CTA SECTION -->
+        <section class="cta-section">
+          <div class="cta">
+            <div class="cta-card">
+              <span class="label">SDG 14: LIFE BELOW WATER</span>
+              <h2>The tide is turning. <br><span>Will you be part of it?</span></h2>
+              <p>The ocean is calling for ceasefire. We've seen the damage; now let's build the recovery. Discover the global actions and local steps that can fix the biggest threats to our water today.</p>
+              <div class="cta-actions">
+                <a href="solution.html" class="btn-primary">Explore Solutions</a>
+                <a href="contact.html" class="btn-sec">Join the Movement</a>
+              </div>
+            </div>
+           
+            
+          </div>
+        </section>
+  <!-- FOOTER -->
+  <footer id="footer-two-columns" style="margin: 0;">
+    <div class="footer-container">
+
+      <div class="footer-card about-card">
+        <h3>AquaGuard</h3>
+        <p>We simplify marine data to raise awareness and protect life below water. Join our mission to conserve oceans.
+        </p>
+      </div>
+
+      <div class="footer-card links-card">
+        <h4>Quick Links</h4>
+         <div class="links-columns">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#problems">Problems</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+           
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-card social-card">
+        <h4>Stay Connected</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p>Subscribe to our newsletter</p>
+        <form>
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 AquaGuard. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

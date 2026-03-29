@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaGuard | Get Involved</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Hero Section */
+    .get-involved-hero {
+      height: 60vh;
+      background: url('https://images.unsplash.com/photo-1439405326854-014607f694d7?q=80&w=1600') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-glass {
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(10px);
+      padding: 60px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-glass h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-glass h1 span {
+      color: #38bdf8;
+    }
+
+    /* Action Grid */
+    .action-grid {
+      padding: 100px 8%;
+      background: #f8fafc;
+    }
+
+    .action-grid .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .action-card {
+      background: white;
+      padding: 50px 40px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+      transition: 0.4s;
+    }
+
+    .action-card:hover {
+      transform: translateY(-15px);
+    }
+
+    .action-card.featured {
+      background: #0f172a;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .action-icon {
+      font-size: 3rem;
+      color: #0ea5e9;
+      margin-bottom: 25px;
+    }
+
+    .featured .action-icon {
+      color: #38bdf8;
+    }
+    .featured .btn-main{
+        display: inline-block;
+      margin-top: 20px;
+      color: #0ea5e9;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .action-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #0ea5e9;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* Lifestyle Habits */
+    .lifestyle-section {
+      padding: 100px 8%;
+      text-align: center;
+    }
+
+    .lifestyle-section h2 {
+      font-size: 3rem;
+      margin-bottom: 50px;
+    }
+    .lifestyle-section span{
+      color: var(--dark);
+    }
+
+    .habit-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .habit-item {
+      background: #f0f9ff;
+      padding: 20px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      color: #0369a1;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .habit-item span {
+      background: #0ea5e9;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* --- Timeline Styling --- */
+    .journey-section {
+      padding: 120px 8%;
+      background: #fdfdfd;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 50px auto 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: #e2e8f0;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    .time-circle {
+      width: 60px;
+      height: 60px;
+      background: #0ea5e9;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+    }
+
+    .time-content {
+      width: 40%;
+      padding: 30px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    .time-content h3{
+ color: var(--dark);
+ font-size: 1.5rem;
+ margin-bottom: 10px;
+    }
+    .time-content p{
+      color: #31455e;
+      letter-spacing: 1px;
+    }
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .section-title{
+      text-align: center;
+      padding: 50px auto;
+    }
+    .section-title h2{
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+    /* --- Ambassador Section --- */
+    .ambassador-banner {
+      display: flex;
+      background: #0f172a;
+      color: white;
+      margin: 0 5%;
+      border-radius: 50px;
+      overflow: hidden;
+      align-items: center;
+    }
+
+    .ambassador-text {
+      padding: 100px;
+      flex: 1;
+    }
+
+    .ambassador-text h2 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    .ambassador-text span {
+      color: #38bdf8;
+    }
+
+    .benefit-list {
+      list-style: none;
+      margin: 30px 0;
+    }
+
+    .benefit-list li {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: #cbd5e1;
+    }
+
+    .benefit-list i {
+      color: #38bdf8;
+      margin-right: 10px;
+    }
+    .ambassador-img{
+            flex: 1;
+            position: relative;
+            right: 50px;
+            height: inherit;
+    }
+    .ambassador-img img{
+        width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    }
+    .ambassador-img {
+      flex: 1;
+      height: 100%;
+    }
+
+    .ambassador-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* --- Newsletter Section --- */
+    .newsletter-large {
+      padding: 150px 8%;
+      text-align: center;
+      background: linear-gradient(to bottom, #ffffff, #f0f9ff);
+    }
+
+    .news-container h3 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .news-form {
+      display: flex;
+      max-width: 600px;
+      margin: 40px auto 0;
+      gap: 15px;
+    }
+
+    .news-form input {
+      flex: 2;
+      padding: 20px 30px;
+      border-radius: 50px;
+      border: 1px solid #e2e8f0;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
+    }
+    .news-form button {
+      flex: 1;
+      background: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      font-size: 1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-main-large{
+       flex: 1;
+      background: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .news-form button:hover {
+      background: #0284c7;
+      transform: scale(1.05);
+    }
+    .step{
+       color: #0071bc;
+            background: #eef6ff;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+    }
+    #active-btn:visited{
+           background: var(--dark);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        flex-direction: row !important;
+      }
+
+      .time-content {
+        width: 80%;
+      }
+
+      .ambassador-banner {
+        flex-direction: column;
+        border-radius: 30px;
+      }
+
+      .news-form {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L12 17.17V19.93zm6.93-2.52c-.41-2.71-2.1-4.99-4.52-5.76V4.07c3.95.49 7 3.85 7 7.93 0 .62-.08 1.21-.21 1.79l-2.27 2.27zM12 4.07V15.17l-8.72-8.72C4.34 5.37 6.09 4.24 8 4.07c-.41 2.71-2.1 4.99-4.52 5.76V4.07z" />
+      </svg>
+      AquaGuard
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="problems.html">Problems</a>
+      <a href="solution.html">Solutions</a>
+      <a href="contact.html">Contact</a>
+      <a href="involve.html" class="btn-join" style="color: var(--light);" id="active-btn">Get Involved</a>
+    </div>
+  </nav>
+
+  <section class="get-involved-hero">
+    <div class="hero-glass">
+      <h1>Small Actions, <span>Big Waves</span></h1>
+      <p>The ocean's survival depends on us. Choose your way to contribute today.</p>
+    </div>
+  </section>
+
+  <section class="action-grid">
+    <div class="container">
+      <div class="action-card">
+        <div class="action-icon"><i class="fa-solid fa-hands-helping"></i></div>
+        <h3>Volunteer</h3>
+        <p>Join our local beach cleanup crews and habitat restoration teams. Physical action makes the most immediate
+          impact.</p>
+        <a href="#" class="action-link">Find a Cleanup →</a>
+      </div>
+
+      <div class="action-card featured">
+        <div class="action-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <h3>Donate</h3>
+        <p>Your contributions fund satellite tracking for whales and coral nursery technology. Every dollar protects a
+          mile.</p>
+        <a href="#" class="btn-main">Support Now</a>
+      </div>
+
+      <div class="action-card">
+        <div class="action-icon"><i class="fa-solid fa-bullhorn"></i></div>
+        <h3>Advocate</h3>
+        <p>Use your voice. Share our educational resources or sign petitions to influence global ocean policies.</p>
+        <a href="#" class="action-link">Digital Toolkit →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="lifestyle-section">
+    <h2>Daily Habits for <span>Ocean Health</span></h2>
+    <div class="habit-list">
+      <div class="habit-item"><span>01</span> Say No to Single-Use Plastic</div>
+      <div class="habit-item"><span>02</span> Choose Sustainable Seafood</div>
+      <div class="habit-item"><span>03</span> Reduce Your Carbon Footprint</div>
+    </div>
+  </section>
+
+  <section class="journey-section">
+    <div class="section-title">
+      <span class="step">Roadmap</span>
+      <h2>Your Journey as a <span style="color: var(--secondary);">Guardian</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-circle">01</div>
+        <div class="time-content">
+          <h3>Educate Yourself</h3>
+          <p>Download our Ocean Literacy guide and understand the core threats to our blue planet.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-circle">02</div>
+        <div class="time-content">
+          <h3>Take the Pledge</h3>
+          <p>Commit to 3 plastic-free months and track your carbon savings on our dashboard.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-circle">03</div>
+        <div class="time-content">
+          <h3>Join a Local Chapter</h3>
+          <p>Connect with other guardians in your city for monthly meetups and cleaning drives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ambassador-banner">
+    <div class="ambassador-text">
+      <h2>Become a <span>Global Ambassador</span></h2>
+      <p>Are you a content creator, scientist, or student leader? Represent AquaGuard in your community and get
+        exclusive access to our research expeditions.</p>
+      <ul class="benefit-list">
+        <li><i class="fas fa-check-circle"></i> Official Certification</li>
+        <li><i class="fas fa-check-circle"></i> Early Access to Reports</li>
+        <li><i class="fas fa-check-circle"></i> Annual Summit Invite</li>
+      </ul>
+      <a href="#" class="btn-main-large">Apply for Ambassadorship</a>
+    </div>
+    <div class="ambassador-img">
+      <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?q=80&w=800" alt="Ocean Ambassador">
+    </div>
+  </section>
+
+  <section class="newsletter-large">
+    <div class="news-container">
+      <h3>Stay Updated with <span>The Deep Blue</span></h3>
+      <p>Monthly stories of recovery, tech breakthroughs, and urgent action alerts delivered to your inbox.</p>
+      <form class="news-form">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit">Subscribe Now</button>
+      </form>
+    </div>
+  </section>
+
+  <!--FOOTER-->
+  <footer id="footer-two-columns" style="margin: 0;">
+    <div class="footer-container">
+
+      <div class="footer-card about-card">
+        <h3>AquaGuard</h3>
+        <p>We simplify marine data to raise awareness and protect life below water. Join our mission to conserve oceans.
+        </p>
+      </div>
+
+      <div class="footer-card links-card">
+        <h4>Quick Links</h4>
+        <div class="links-columns">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#problems">Problems</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+           
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-card social-card">
+        <h4>Stay Connected</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p>Subscribe to our newsletter</p>
+        <form>
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 AquaGuard. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

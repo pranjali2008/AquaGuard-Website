@@ -1,0 +1,265 @@
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+   :root {
+       --primary: #0077b6;
+       --secondary: #00b4d8;
+       --dark: #03045e;
+       --light: #f8f9fa;
+       --white: #ffffff;
+       --accent: #caf0f8;
+       --danger: #e63946;
+   }
+
+   * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       font-family: 'Inter', sans-serif;
+       scroll-behavior: smooth;
+   }
+
+   body {
+       background-color: var(--white);
+       color: #333;
+       line-height: 1.6;
+   }
+
+   nav {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 1.2rem 10%;
+       background: var(--white);
+       border-bottom: 2px solid var(--accent);
+       position: sticky;
+       top: 0;
+       z-index: 1000;
+   }
+     #active:visited{
+            color: var(--primary);
+        }
+   .logo {
+       font-size: 1.6rem;
+       font-weight: 800;
+       color: var(--dark);
+       text-transform: uppercase;
+       letter-spacing: 1px;
+       display: flex;
+       align-items: center;
+   }
+
+   .logo svg {
+       height: 30px;
+       width: 30px;
+       margin-right: 8px;
+       fill: var(--primary);
+       /* Color of the SVG icon */
+   }
+
+   .nav-links a {
+       margin-left: 2rem;
+       text-decoration: none;
+       color: var(--dark);
+       font-weight: 600;
+       font-size: 0.9rem;
+       transition: 0.3s ease;
+   }
+   .nav-links a:hover{
+    color: var(--primary);
+   }
+
+   .btn-join {
+       background: var(--primary);
+       color: white;
+       padding: 0.7rem 1.5rem;
+       border-radius: 50px;
+       text-decoration: none;
+       transition: 0.3s;
+   }
+
+   .btn-join:hover {
+       background: var(--dark);
+       transform: scale(1.05);
+   }
+
+   .section-header div {
+       width: 60px;
+       height: 4px;
+       background: var(--primary);
+       margin: 0 auto;
+       border-radius: 20px;
+   }
+   #footer-two-columns {
+  background: var(--dark);
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 50px 20px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-card {
+  flex: 1 1 250px;
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+/* About Section */
+.about-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.about-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Quick Links */
+.links-card h4 {
+  margin-bottom: 10px;
+}
+
+.links-columns {
+  display: flex;
+  gap: 20px;
+  
+ justify-content: center;
+}
+
+.links-columns ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links-columns ul li {
+  margin-bottom: 8px;
+}
+
+.links-columns ul li a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.links-columns ul li a:hover {
+  color: #00b4d8;
+}
+
+/* Social + Newsletter */
+.social-card h4 {
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  display: inline-block;
+  color: white;
+  font-size: 1.2rem;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #00b4d8;
+}
+
+.social-card p {
+  margin: 15px 0 10px 0;
+}
+
+.social-card form {
+  display: flex;
+  gap: 10px;
+}
+
+.social-card input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+
+.social-card button {
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: none;
+  background: #00b4d8;
+  color: #03045e;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-card button:hover {
+  background: #fff;
+  color: #0077b6;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 15px;
+  color: #a8dadc;
+}
+
+/* Responsive */
+@media(max-width: 717px){
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-card {
+    margin-bottom: 20px;
+  }
+  .links-columns {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .social-card form {
+    flex-direction: column;
+  }
+  .social-card input, .social-card button {
+    width: 100%;
+  }
+  nav{
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-links{
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+  .nav-links li{
+    width: 90%;
+    text-align: center;
+    
+  }
+  .nav-links li a{
+    display: block;
+    padding: 10px;
+    width: 30%;
+   margin: 5px 0;
+   border-radius: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .nav-links li a :hover{
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+}
+
+    /* problems */
+
+/* Hero Section */

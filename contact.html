@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaGuard | Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .split-contact {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fdfdfd;
+            padding: 60px 5%;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 40px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        /* --- Left Side (Dark/Visual) --- */
+        .contact-visual {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+            /* Deep Navy */
+            color: #0f172a;
+            padding: 80px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-visual .badge {
+            background: #bae6fd;
+            color: #0369a1;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .contact-visual h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin: 20px 0;
+            color: #0f172a;
+        }
+
+        .contact-visual h1 span {
+            color: #0071bc;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            /* Optional: adds a classy touch */
+        }
+
+        .contact-visual p {
+            color: #475569;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .detail-item {
+            margin-top: 30px;
+        }
+
+        .detail-item small {
+            display: block;
+            color: #0369a1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .detail-item a,
+        .detail-item address {
+            font-size: 1.2rem;
+            color: #1e293b;
+            text-decoration: none;
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .detail-item a:hover {
+            color: #0071bc;
+            text-decoration: underline;
+        }
+        .visual-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-minimal {
+            display: flex;
+            gap: 25px;
+            margin-top: 40px;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .social-icon-item {
+            font-size: 1.4rem;
+            color: #475569;
+            /* Slate grey color */
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.5);
+            /* Soft glass look */
+            border-radius: 12px;
+            border: 1px solid rgba(0, 113, 188, 0.1);
+        }
+
+        /* Hover Effects */
+        .social-icon-item:hover {
+            transform: translateY(-5px);
+            background: #ffffff;
+            box-shadow: 0 10px 20px rgba(0, 113, 188, 0.1);
+            color: #0071bc;
+            /* Brand Blue on hover */
+            border-color: #0071bc;
+        }
+
+        /* Specific Brand Colors on Hover (Optional) */
+        .social-icon-item:hover .fa-x-twitter {
+            color: #000;
+        }
+
+        .social-icon-item:hover .fa-instagram {
+            color: #E4405F;
+        }
+
+        .social-icon-item:hover .fa-linkedin-in {
+            color: #0077B5;
+        }
+
+        /* Animation for the icons load */
+        .social-minimal a {
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .social-minimal a:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .social-minimal a:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .social-minimal a:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Right Side (Form) --- */
+        .contact-form-side {
+            padding: 80px;
+            background: white;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        /* Material Design Style Floating Labels */
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 15px 0;
+            border: none;
+            border-bottom: 2px solid #e2e8f0;
+            font-size: 1.1rem;
+            outline: none;
+            background: transparent;
+            transition: 0.3s;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            color: #94a3b8;
+            pointer-events: none;
+            transition: 0.3s ease all;
+        }
+
+        .input-group input:focus~label,
+        .input-group input:not(:placeholder-shown)~label,
+        .input-group textarea:focus~label,
+        .input-group textarea:not(:placeholder-shown)~label {
+            top: -15px;
+            font-size: 0.85rem;
+            color: #0ea5e9;
+            font-weight: 700;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-bottom-color: #0ea5e9;
+        }
+
+        /* Button Styling */
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #0f172a;
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.05);
+            background: #0ea5e9;
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-visual {
+                padding: 50px;
+            }
+
+            .contact-form-side {
+                padding: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L12 17.17V19.93zm6.93-2.52c-.41-2.71-2.1-4.99-4.52-5.76V4.07c3.95.49 7 3.85 7 7.93 0 .62-.08 1.21-.21 1.79l-2.27 2.27zM12 4.07V15.17l-8.72-8.72C4.34 5.37 6.09 4.24 8 4.07c-.41 2.71-2.1 4.99-4.52 5.76V4.07z" />
+            </svg>
+            AquaGuard
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="problems.html"> Problems</a>
+            <a href="solution.html">Solution</a>
+            <a href="contact.html" id="active">Contact</a>
+            <a href="involve.html" class="btn-join" style="color: var(--light);">Get Involved</a>
+        </div>
+    </nav>
+
+    <!--CONTACT SECTION-->
+    <section class="split-contact">
+        <div class="contact-container">
+            <div class="contact-visual">
+                <div class="visual-content">
+                    <span class="badge">Direct Line</span>
+                    <h1>Let's make some <span>waves</span> together.</h1>
+                    <p>Ready to protect our oceans? Our team is just a message away.</p>
+
+                    <div class="contact-details-list">
+                        <div class="detail-item">
+                            <small>Email us at</small>
+                            <a href="mailto:hello@oceanpulse.org">hello@aquaguard.org</a>
+                        </div>
+                        <div class="detail-item">
+                            <small>Visit our lab</small>
+                            <address>Marine Drive, Sector 4, Mumbai, MH</address>
+                        </div>
+                    </div>
+
+                    <div class="social-minimal">
+                        <a href="#" title="Twitter" class="social-icon-item">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" title="Instagram" class="social-icon-item">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" title="LinkedIn" class="social-icon-item">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-side">
+                <form class="modern-form">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <input type="text" id="name" required placeholder=" ">
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">Email Address</label>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <select id="interest">
+                            <option value="" disabled selected>I'm interested in...</option>
+                            <option>Volunteering</option>
+                            <option>Donating</option>
+                            <option>Partnership</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <textarea id="message" rows="4" required placeholder=" "></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+
+                    <button type="submit" class="floating-btn">
+                        Send Message
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- footer -->
+    <footer id="footer-two-columns">
+        <div class="footer-container">
+
+            <div class="footer-card about-card">
+                <h3>AquaGuard</h3>
+                <p>We simplify marine data to raise awareness and protect life below water. Join our mission to conserve
+                    oceans.</p>
+            </div>
+
+            <div class="footer-card links-card">
+                <h4>Quick Links</h4>
+                 <div class="links-columns">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#problems">Problems</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+           
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+            </div>
+            <div class="footer-card social-card">
+                <h4>Stay Connected</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>Subscribe to our newsletter</p>
+                <form>
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 AquaGuard. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
